@@ -1,5 +1,3 @@
-import requests
-
 from cep_acesso import AddressSearch
 from cpf_cnpj import Document
 from datas_br import DatesBr
@@ -20,9 +18,12 @@ print(tel_object)
 register = DatesBr()
 print(register)
 
-cep = 24837988
+cep = '01001000'
 cep_object = AddressSearch(cep)
 print(cep_object)
 
-r = requests.get('https://viacep.com.br/ws/01001000/json/')
-print(r.text)
+# r = requests.get('https://viacep.com.br/ws/01001000/json/')
+# print(r.text)
+
+neighborhood, town, state = cep_object.access_cep_data()
+print(neighborhood, town, state)
